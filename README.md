@@ -1,18 +1,13 @@
-**Resize Script:**
+**POLYBAR**
 
-#!/usr/bin/env dash
+apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libuv1-dev libnl-genl-3-dev
 
-if bspc query -N -n focused.floating > /dev/null; then
-    step=20
-else
-    step=100
-fi
 
-case "$1" in
-    west) dir=right; falldir=left; x="-$step"; y=0;;
-    east) dir=right; falldir=left; x="$step"; y=0;;
-    north) dir=top; falldir=bottom; x=0; y="-$step";;
-    south) dir=top; falldir=bottom; x=0; y="$step";;
-esac
+git clone - -recursive <https://github.com/polybar/polybar>
 
-bspc node -z "$dir" "$x" "$y" || bspc node -z "$falldir" "$x" "$y"
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+sudo make install
+
