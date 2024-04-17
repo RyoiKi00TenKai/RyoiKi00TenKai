@@ -11,3 +11,22 @@ cmake ..
 make -j$(nproc)
 sudo make install
 
+-- No build type specified; using Release
+-- Couldn't locate ccache, disabling ccache...
+-- Using supported compiler GNU-12.2.0
+CMake Error at lib/CMakeLists.txt:15 (add_subdirectory):
+  The source directory
+
+    /home/rioikit/Custom Parrot/polybar/lib/xpp
+
+  does not contain a CMakeLists.txt file.
+
+
+CMake Error at lib/CMakeLists.txt:17 (message):
+  Target xpp not generated
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/rioikit/Custom Parrot/polybar/build/CMakeFiles/CMakeOutput.log".
+
+
